@@ -2,10 +2,13 @@ const router = require('express').Router();
 
 module.exports = (wagner) => {
     const userCtrl = wagner.invoke(() =>
-        require('../controllers/user.controller')(User));
+        require('../controllers/user.controller')());
 
     router.post('/', (req, res) =>
         userCtrl.createUser(req, res));
+
+    router.post('/pagar', (req, res) =>
+        userCtrl.createPago(req, res));
 
     /*router.get('/', (req, res) =>
         userCtrl.findAll(req, res));
